@@ -74,6 +74,19 @@ const api = {
                 create:"yonghu_add.do",
                 edit:"yonghu_updt.do",
             },
+        noticeboard:{
+            list:"noticeboard_list.do",
+            insert:"noticeboardinsert.do",
+            update:"noticeboardupdate.do",
+            delete:"noticeboard_delete.do",
+            detail:"noticeboard_detail.do",
+            create:"noticeboard_add.do",
+            edit:"noticeboard_updt.do",
+            listadder:"noticeboard_list_adder.do",
+            weblist:"noticeboardlist.do",
+            webdetail:"noticeboarddetail.do",
+            
+        },
         xinwenfenlei:{
                 list:"xinwenfenlei_list.do",
                 insert:"xinwenfenleiinsert.do",

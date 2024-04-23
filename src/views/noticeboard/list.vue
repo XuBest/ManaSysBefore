@@ -1,37 +1,28 @@
 <template>
     
-                                                <div class="v-list" v-loading="loading" element-loading-text="加载中">
-
+        <div class="v-list" v-loading="loading" element-loading-text="加载中">
         <el-card class="box-card">
             <div slot="header" class="clearfix">
                 <span class="title">
-                新闻信息列表
+                公告信息列表
                 </span>
-
             </div>
                 <!-- 搜索 -->
-        <div class="form-search"><!--生成一个新闻信息添加表格-->
+        <div class="form-search"><!--生成一个公告信息添加表格-->
             <el-form @submit.prevent.stop :inline="true" size="mini">
                                 <el-form-item label="标题">
                 
-                    <el-input v-model="search.biaoti"></el-input> <!--input进来的信息和search里面的对应属性进行绑定，这个search是一个xinxifenlei类型的数据；
+                <el-input v-model="search.title"></el-input> <!--input进来的信息和search里面的对应属性进行绑定，这个search是一个公告类型的数据；
                     search在后面的date中进行了定义-->
-                    
-                </el-form-item>                <el-form-item label="分类">
+                </el-form-item>            <el-form-item label="添加人">
                 
-                    <el-select v-model="search.fenlei" ><el-option label="请选择" value=""></el-option>
-<el-option v-for="m in newstypeList" :value="m.id" :label="m.typename"></el-option>
-</el-select>
+                    <el-input v-model="search.adder"></el-input>
                     
-                </el-form-item>                <el-form-item label="添加人">
+                </el-form-item>                <el-form-item label="浏览量">
                 
-                    <el-input v-model="search.tianjiaren"></el-input>
-                    
-                </el-form-item>                <el-form-item label="点击率">
-                
-                    <el-input type="text" style="width:80px;" v-model="search.dianjilv_start"></el-input>
+                    <el-input type="text" style="width:80px;" v-model="search.counter_start"></el-input>
 -
-<el-input type="text" style="width:80px;" v-model="search.dianjilv_end"></el-input>
+<el-input type="text" style="width:80px;" v-model="search.counter_end"></el-input>
                     
                 </el-form-item>                <el-form-item>
                     <el-button type="primary" @click="searchSubmit" icon="el-icon-search">查询</el-button>
@@ -46,39 +37,33 @@
 
                         <el-table-column label="标题">
                 <template slot-scope="{row}">
-                    {{  row.biaoti  }}                </template>
-            </el-table-column>
-                        <el-table-column label="分类"width="80">
-                <template slot-scope="{row}">
-                     <e-select-view module="newstype" :value="row.fenlei" select="id" show="typename"></e-select-view>                </template>
+                    {{  row.title  }}                </template>
             </el-table-column>
                         <el-table-column label="图片"width="100">
                 <template slot-scope="{row}">
-                    <e-img :src="row.tupian" style="max-width:120px" />                </template>
+                    <e-img :src="row.picture" style="max-width:120px" />                </template>
             </el-table-column>
                         <el-table-column label="添加人"width="80">
                 <template slot-scope="{row}">
-                    {{  row.tianjiaren  }}                </template>
+                    {{  row.adder  }}                </template>
             </el-table-column>
                         <el-table-column label="点击率"width="80">
                 <template slot-scope="{row}">
-                    {{  row.dianjilv  }}                </template>
+                    {{  row.counter  }}                </template>
             </el-table-column>
             
-
-
                         
             <el-table-column label="操作">
                 <template slot-scope="{row}">
                     <el-button-group>
-                    
+                     
                                             <el-tooltip content="详情" placement="top">
-                        <el-button @click="$goto({path:'/admin/xinwenxinxidetail',query:{id:row.id } })" icon="el-icon-info" type="info" size="mini"></el-button>
+                        <el-button @click="$goto({path:'/admin/noticeboarddetail',query:{id:row.id } })" icon="el-icon-info" type="info" size="mini"></el-button>
                         </el-tooltip>
                                             <el-tooltip content="编辑" placement="top">
-                    <el-button icon="el-icon-edit" @click="$goto({path:'/admin/xinwenxinxiupdt',query:{id:row.id } })"
+                    <el-button icon="el-icon-edit" @click="$goto({path:'/admin/noticeboardupdt',query:{id:row.id } })"
                                type="warning" size="mini"></el-button>
-                        </el-tooltip> 
+                        </el-tooltip>
                         <el-tooltip content="删除" placement="top">
                     <el-button icon="el-icon-delete" type="danger" size="mini" @click="deleteItem(row)">
 
@@ -125,26 +110,16 @@
                 loading:false,
                 list:[],
                 search:{
-                    
-                                                                biaoti:'',
-                    
-                                                                fenlei:'',
-                    
-                                                                tianjiaren:'',
-                    
-                                                            dianjilv_start:'',
-                    dianjilv_end:'',
-
-                    
-                                                                neirong:'',
-                    
+                    title:'',
+                    adder:'',         
+                    counter_start:'',
+                    counter_end:'',
+                    content:'', 
                                     },
                 total:{},
                 page:1, // 当前页
                 pagesize:10, // 页大小
                 totalCount:0, // 总行数
-            
-                        xinwenfenleiList:[],
             
             }
         },
@@ -175,7 +150,7 @@
                         query: filter
                     });
                 }
-                this.$post(api.xinwenxinxi.list , filter).then(res=>{
+                this.$post(api.noticeboard.list , filter).then(res=>{
                     this.loading = false;
                     if(res.code == api.code.OK)
                     {
@@ -195,7 +170,7 @@
                 }).then(()=>{// 确定操作
 
                     this.loading = true; // 滚动条
-                    this.$post(api.xinwenxinxi.delete , {// 提交后台
+                    this.$post(api.noticeboard.delete , {// 提交后台
                         id:row.id
                     }).then(res=>{
                         this.loading = false;

@@ -1,27 +1,30 @@
 <template>
-    <div class="liuyanban-add" v-loading="loading">
+    <div class="xinwenxinxi-add" v-loading="loading">
         <el-card class="box-card">
             <div slot="header" class="clearfix">
-                                <span class="title"> 留言反馈板</span>
-                            </div>
+                                <span class="title"> 添加公告信息</span>
+                            </div> 
             <div class="form-database-form">
                 
 
             <el-form :model="form" ref="formModel" label-width="130px" status-icon validate-on-rule-change>
-                                <el-form-item label="姓名" prop="xingming" required :rules="[{required:true, message:'请填写姓名'}]">
-                                            <el-input placeholder="输入姓名" style="width:250px;" v-model="form.xingming" />
-                                </el-form-item>
-                                <el-form-item label="联系电话" prop="lianxidianhua" required :rules="[{required:true, message:'请填写联系电话'}]">
-                                            <el-input placeholder="输入联系电话" style="width:250px;" v-model="form.lianxidianhua" />                                  
-                                </el-form-item>
-                                <el-form-item label="留言内容" prop="liuyanneirong" required :rules="[{required:true, message:'请填写留言内容'}]">
-                                            <el-input type="textarea" v-model="form.liuyanneirong"></el-input>                                   
-                                </el-form-item>
-                                <el-form-item label="留言人" prop="liuyanren">
-                                            <el-input v-model="form.liuyanren" readonly style="width: 250px;"></el-input> 
-                                </el-form-item>
+                                <el-form-item label="标题" prop="title" required :rules="[{required:true, message:'请填写标题'}, {validator:rule.checkRemote, message:'内容重复了', checktype:'insert', module:'noticeboard', col:'title', trigger:'blur'}]">
+                                            <el-input placeholder="输入标题" style="width:450px;" v-model="form.title" />                                    </el-form-item>
+
+                                <el-form-item label="图片" prop="picture">
+                                            <e-upload-image v-model="form.picture"></e-upload-image>                                    </el-form-item>
+
+                                <el-form-item label="添加人" prop="adder">
+                                            <el-input v-model="form.adder" readonly style="width: 250px;"></el-input>                                    </el-form-item>
+
+                                <el-form-item label="浏览量" prop="counter" :rules="[{validator:rule.checkNumber, message:'输入一个有效数字'}]">
+                                            <el-input placeholder="输入点击率" style="width:250px;" v-model="form.counter" />                                    </el-form-item>
+
+                                <el-form-item label="内容" prop="content">
+                                            <e-editor v-model="form.content"></e-editor>                                    </el-form-item>
+
                                 <el-form-item v-if="btnText">
-                    <el-button type="primary" style="background:#c40000fd;" @click="submit">{{ btnText }}</el-button>
+                    <el-button type="primary" @click="submit">{{ btnText }}</el-button>
                 </el-form-item>
             </el-form>
 
@@ -30,9 +33,6 @@
     </div>
 </template>
 <style type="text/scss" scoped lang="scss">
-.liuyanban-add{
-margin-top: 5ch;
-}
 </style>
 <script>
     import api from '@/api'
@@ -41,19 +41,19 @@ margin-top: 5ch;
 
     
     export default {
-        name:'liuyanban-add',
+        name:'noticeboard-add', /**这个name是干嘛的？ */
         data() {
             return {
-                                rule,
+                rule,
                 loading:false,
                 form:{
-                    xingming:'',
-                    lianxidianhua:'',
-                    liuyanneirong:'',
-liuyanren:this.$store.state.user.session.username,
+                    title: '',
+                    picture:'',
+                    adder:this.$store.state.user.session.username,                    
+                    content:'',
+                    counter:'',
                                     
                 },
-
             
             }
         },
@@ -66,7 +66,7 @@ liuyanren:this.$store.state.user.session.username,
             },
             btnText:{
                 type:String,
-                default:'提交反馈'
+                default:'提交'
             },
                     },
 
@@ -78,10 +78,10 @@ liuyanren:this.$store.state.user.session.username,
                     this.loading = true;
                     var form = this.form;
 
-                    this.$post(api.liuyanban.insert , form).then(res=>{
+                    this.$post(api.noticeboard.insert , form).then(res=>{
                         this.loading = false;
                         if(res.code == api.code.OK){
-                            this.$message.success('提交成功');
+                            this.$message.success('公告添加成功');
                             this.$emit('success' , res.data);
                             this.$refs.formModel.resetFields();
                                                         this.loadInfo();
@@ -98,12 +98,12 @@ liuyanren:this.$store.state.user.session.username,
                 })
 
             },
-            loadInfo(){/**用来获取或者加载某条留言的方法 */
+            loadInfo(){
 
-                var form = this.form;
+                                var form = this.form;
                 // 获取模块得数据
                 this.loading = true;
-                this.$post(api.liuyanban.create , {
+                this.$post(api.noticeboard.create , {
                     id:this.$route.query.id
                 }).then(res=>{
                     this.loading = false;

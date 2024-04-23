@@ -7,6 +7,19 @@ export default [
     meta: { title:"用户添加"  }
 },
 {
+    path:"noticeboard",
+        name:"IndexnoticeboardList",
+    component: () => import("@/views/noticeboard/index"),
+    meta: { title:"公告信息列表"  }
+},
+{
+    path:"noticeboarddetail",
+        name:"IndexnoticeboardDetail",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/noticeboard/webdetail"),
+    meta: { title:"公告信息详情"  }
+},
+{ 
     path:"xinwenxinxi",
         name:"IndexxinwenxinxiList",
     component: () => import("@/views/xinwenxinxi/index"),

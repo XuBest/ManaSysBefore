@@ -136,7 +136,7 @@
                         query: filter
                     });
                 }
-                this.$post(api.liuyanban.list, filter).then(res => {
+                this.$post(api.liuyanban.list, filter).then(res => { /**！！在这里通过api.liuyanban.list和后端信息交流上了 */
                     this.loading = false;
                     if (res.code == api.code.OK) {
                         extend(this, res.data);

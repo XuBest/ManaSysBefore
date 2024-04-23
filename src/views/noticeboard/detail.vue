@@ -1,43 +1,36 @@
 <template>
     
     <div class="xinwenxinxi-detail" v-loading="loading" ref="print">
-        <el-page-header @back="goBack" content="详情页面"></el-page-header>
+        <el-page-header @back="goBack" content="公告详情页面"></el-page-header>
         <div class="admin-detail">
 
-                        <div class="detail detail-longtext">
+             <div class="detail detail-longtext">
                 <div class="detail-title">
                     标题：
                 </div>
                 <div class="detail-content">
-                    {{ map.biaoti }}
-                </div> 
-            </div>                        <div class="detail detail-select">
-                <div class="detail-title">
-                    分类：
+                    {{ map.title }}
                 </div>
-                <div class="detail-content">
-                     <e-select-view module="newstype" :value="map.fenlei" select="id" show="typename"></e-select-view>
-                </div>
-            </div>                        <div class="detail detail-image">
+            </div>        <div class="detail detail-image">
                 <div class="detail-title">
                     图片：
                 </div>
                 <div class="detail-content">
-                    <e-img :src="map.tupian" style="max-width:120px" />
+                    <e-img :src="map.picture" style="max-width:120px" />
                 </div>
             </div>                        <div class="detail detail-textuser">
                 <div class="detail-title">
                     添加人：
                 </div>
                 <div class="detail-content">
-                    {{ map.tianjiaren }}
+                    {{ map.adder }}
                 </div>
             </div>                        <div class="detail detail-number">
                 <div class="detail-title">
                     点击率：
                 </div>
                 <div class="detail-content">
-                    {{ map.dianjilv }}
+                    {{ map.counter }}
                 </div>
             </div>                                                <div class="detail detail-autotime">
                 <div class="detail-title">
@@ -52,7 +45,7 @@
                     内容：
                 </div>
                 <div class="detail-content">
-                    <div v-html="map.neirong"></div>
+                    <div v-html="map.content"></div>
                 </div>
             </div>
         </div>
@@ -143,7 +136,7 @@
                 },
                 immediate:true
             }
-        },
+        }, 
         computed: {
                     },
         methods: {
@@ -153,7 +146,7 @@
             loadDetail(){
                 if(this.loading) return;
                 this.loading = true;
-                this.$get(api.xinwenxinxi.detail , {
+                this.$get(api.noticeboard.detail , {
                     id:this.id
                 }).then(res=>{
                     this.loading = false;

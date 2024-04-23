@@ -118,6 +118,40 @@ export default [
     component: () => import("@/views/xinwenxinxi/detail"),
     meta: { title:"新闻信息详情",authLogin:true }
 },
+
+{
+    path:"noticeboard",
+        name:"AdminnoticeboardList",
+    component: () => import("@/views/noticeboard/list"),
+    meta: { title:"公告信息列表",authLogin:true }
+},
+{
+    path:"noticeboard_adder",
+        name:"AdminnoticeboardListadder",
+    component: () => import("@/views/noticeboard/list-adder"),
+    meta: { title:"公告信息列表",authLogin:true }
+},
+{
+    path:"noticeboardadd",
+        name:"AdminnoticeboardAdd",
+    component: () => import("@/views/noticeboard/add"),
+    meta: { title:"添加公告信息",authLogin:true }
+},
+{
+    path:"noticeboardupdt",
+        name:"AdminnoticeboardUpdt",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/noticeboard/updt"),
+    meta: { title:"编辑公告信息",authLogin:true }
+},
+{
+    path:"noticeboarddetail",
+        props:route=>({id:route.query.id}),
+    name:"AdminnoticeboardDetail",
+    component: () => import("@/views/noticeboard/detail"),
+    meta: { title:"公告详情",authLogin:true }
+},
+
 {
     path:"youqinglianjie",
         name:"AdminyouqinglianjieList",

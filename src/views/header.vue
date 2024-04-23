@@ -64,8 +64,8 @@
 </ul>
 </li>
 <li>
-<router-link to="/lvyouxianlu">公告信息
-</router-link>
+<router-link to="/noticeboard">公告信息
+</router-link> 
 </li>
 <li>
 <router-link to="/lvyouxianlu">活动动态

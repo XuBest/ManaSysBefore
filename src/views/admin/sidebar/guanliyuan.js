@@ -144,11 +144,11 @@ export default [
         children:[ 
                      {
                 label:'公告添加',
-                to:'/admin/xinwenxinxiadd',
+                to:'/admin/noticeboardadd',
             },
                         {
                 label:'公告查询',
-                to:'/admin/xinwenxinxi',
+                to:'/admin/noticeboard',
             },
                     ]
     },/**待实现 */
