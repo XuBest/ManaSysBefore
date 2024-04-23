@@ -10,7 +10,7 @@
     <div class="descount">
                 <span class="title">
             分类：
-             <e-select-view module="xinwenfenlei" :value="map.fenlei" select="id" show="fenleimingcheng"></e-select-view>        </span>
+             <e-select-view module="newstype" :value="map.fenlei" select="id" show="typename"></e-select-view>        </span>
                 <span class="title">
             点击率：
             {{ map.dianjilv }}        </span>

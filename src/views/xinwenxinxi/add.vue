@@ -3,7 +3,7 @@
         <el-card class="box-card">
             <div slot="header" class="clearfix">
                                 <span class="title"> 添加新闻信息</span>
-                            </div>
+                            </div> 
             <div class="form-database-form">
                 
 
@@ -13,7 +13,7 @@
 
                                 <el-form-item label="分类" prop="fenlei" required :rules="[{required:true, message:'请填写分类'}]">
                                             <el-select v-model="form.fenlei" >
-<el-option v-for="m in xinwenfenleiList" :value="m.id" :label="m.fenleimingcheng"></el-option>
+<el-option v-for="m in newstypeList" :value="m.id" :label="m.typename"></el-option>
 </el-select>                                    </el-form-item>
 
                                 <el-form-item label="图片" prop="tupian">

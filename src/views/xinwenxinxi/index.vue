@@ -8,7 +8,7 @@
                         <form action="javascript:;" @submit="searchSubmit" class="form-search">
                             <table class="jd-search">
                                 <tbody>
-                                <tr>
+                                <tr> 
                                     <td class="label">
                                         分类
                                     </td>
@@ -19,11 +19,11 @@
                                                :class="{active:!search.fenlei}">全部</a>
 
                                             <a href="javascript:;"
-                                               v-for="r in mapxinwenfenlei3"
+                                               v-for="r in mapnewstype3" 
                                                @click="selectRadio('fenlei',r.id)"
-                                               :class="{active:search.fenlei == r.id}" v-text="r.fenleimingcheng">
+                                               :class="{active:search.fenlei == r.id}" v-text="r.typename">
 
-                                            </a>
+                                            </a> <!--是mapnewstype3在后台读取到了，没能传给前台-->
 
                                         </p>
                                     </td>
@@ -62,8 +62,8 @@
                             >
                                 <span>添加人:{{ r.tianjiaren }}</span>
                                 <span>点击率:{{ r.dianjilv }}</span>
-                                <span>分类: <e-select-view module="xinwenfenlei" :value="r.fenlei" select="id"
-                                                         show="fenleimingcheng"></e-select-view></span>
+                                <span>分类: <e-select-view module="newstype" :value="r.fenlei" select="id"
+                                                         show="typename"></e-select-view></span>
 
                             </e-news-list>
                         </div>
@@ -128,7 +128,7 @@
                 totalCount: 0, // 总行数
                 total: {},
 
-                mapxinwenfenlei3: [],
+                mapnewstype3: [],
             }
         },
         watch: {},

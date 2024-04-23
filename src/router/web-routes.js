@@ -24,7 +24,7 @@ export default [
         name:"IndexliuyanbanAdd",
     component: () => import("@/views/liuyanban/webadd"),
     meta: { title:"留言板添加" ,authLogin:true,msg:true }
-},
+}, 
 {
     path:"jingdianxinxi",
         name:"IndexjingdianxinxiList",

@@ -7,18 +7,17 @@
                 <span class="title">
                 新闻分类列表
                 </span>
-
+ 
             </div>
         
 
-        <el-table border :data="list" style="width: 100%" highlight-current-row
-                    >
+        <el-table border :data="list" style="width: 100%" highlight-current-row >
             
             <el-table-column type="index" label="#"></el-table-column> <!-- 序号 -->
 
                         <el-table-column label="分类名称"width="130">
                 <template slot-scope="{row}">
-                    {{  row.fenleimingcheng  }}                </template>
+                    {{  row.typename  }}                </template>
             </el-table-column>
             
 

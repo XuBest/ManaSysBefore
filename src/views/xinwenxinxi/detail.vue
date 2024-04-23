@@ -16,7 +16,7 @@
                     分类：
                 </div>
                 <div class="detail-content">
-                     <e-select-view module="xinwenfenlei" :value="map.fenlei" select="id" show="fenleimingcheng"></e-select-view>
+                     <e-select-view module="newstype" :value="map.fenlei" select="id" show="typename"></e-select-view>
                 </div>
             </div>                        <div class="detail detail-image">
                 <div class="detail-title">

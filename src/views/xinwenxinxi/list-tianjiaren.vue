@@ -19,7 +19,7 @@
                 </el-form-item>                <el-form-item label="分类">
                 
                     <el-select v-model="search.fenlei" ><el-option label="请选择" value=""></el-option>
-<el-option v-for="m in xinwenfenleiList" :value="m.id" :label="m.fenleimingcheng"></el-option>
+<el-option v-for="m in newstypeList" :value="m.id" :label="m.typename"></el-option>
 </el-select>
                     
                 </el-form-item>                <el-form-item label="添加人">

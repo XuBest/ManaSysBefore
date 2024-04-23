@@ -116,7 +116,7 @@
                     this.$post(api.yonghu.update, form).then(res => {
                         this.loading = false;
                         if (res.code == api.code.OK) {
-                            this.$message.success('添加成功');
+                            this.$message.success('修改成功');
                             this.$emit('success', res.data);
                             this.$refs.formModel.resetFields();
                             this.loadInfo();

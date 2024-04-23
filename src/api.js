@@ -31,10 +31,10 @@ const api = {
         });
     },
     search:{
-        select:'selectUpdateSearch.do',
-        table:'tableAjax.do?a=table',
-        selectView:'selectView.do',
-        all:'selectAll.do'
+        select:'selectUpdateSearch.do',/*用于执行一次更新搜索的操作，例如在用户修改搜索条件后，获取匹配新条件的搜索结果 */
+        table:'tableAjax.do?a=table',/*获取某个特定表的数据，例如在用户选择查看某个表的数据时，获取这个表的数据。*/
+        selectView:'selectView.do',/*用于获取某个特定视图的数据，例如在用户选择查看某个视图时，获取这个视图的数据。*/
+        all:'selectAll.do'/*用于执行一次全表搜索的操作，获取所有满足搜索条件的数据。*/
     },
     attachment:{
         uploadUrl:'upload_re.do',
@@ -94,6 +94,7 @@ const api = {
                 listtianjiaren:"xinwenxinxi_list_tianjiaren.do",
                 weblist:"xinwenxinxilist.do",
                 webdetail:"xinwenxinxidetail.do",
+                
             },
         youqinglianjie:{
                 list:"youqinglianjie_list.do",
@@ -131,7 +132,7 @@ const api = {
                 detail:"jingdianxinxi_detail.do",
                 create:"jingdianxinxi_add.do",
                 edit:"jingdianxinxi_updt.do",
-                weblist:"jingdianxinxilist.do",
+                weblist:"jingdianxinxilist.do", 
                 webdetail:"jingdianxinxidetail.do",
             },
         diqu:{

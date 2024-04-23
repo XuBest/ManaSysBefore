@@ -8,8 +8,8 @@
                 
 
             <el-form :model="form" ref="formModel" label-width="130px" status-icon validate-on-rule-change>
-                                <el-form-item label="分类名称" prop="fenleimingcheng" required :rules="[{required:true, message:'请填写分类名称'}, {validator:rule.checkRemote, message:'内容重复了', checktype:'insert', module:'xinwenfenlei', col:'fenleimingcheng', trigger:'blur'}]">
-                                            <el-input placeholder="输入分类名称" style="width:250px;" v-model="form.fenleimingcheng" />                                    </el-form-item>
+                                <el-form-item label="分类名称" prop="typename" required :rules="[{required:true, message:'请填写分类名称'}, {validator:rule.checkRemote, message:'内容重复了', checktype:'insert', module:'newstype', col:'typename', trigger:'blur'}]">
+                                            <el-input placeholder="输入分类名称" style="width:250px;" v-model="form.typename" />                                    </el-form-item>
 
                                 <el-form-item v-if="btnText">
                     <el-button type="primary" @click="submit">{{ btnText }}</el-button>
@@ -38,7 +38,7 @@
                                 rule,
                 loading:false,
                 form:{
-                    fenleimingcheng:'',
+                    typename:'',
 
                                     
                 },

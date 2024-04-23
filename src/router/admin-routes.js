@@ -85,7 +85,7 @@ export default [
     props:route=>({id:route.query.id}),
     component: () => import("@/views/xinwenfenlei/updt"),
     meta: { title:"编辑新闻分类",authLogin:true }
-},
+}, 
 {
     path:"xinwenxinxi",
         name:"AdminxinwenxinxiList",

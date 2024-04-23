@@ -21,7 +21,7 @@
                                             <a href="javascript:;"
                                                v-for="r in mapmeishifenlei5"
                                                @click="selectRadio('fenlei',r.id)"
-                                               :class="{active:search.fenlei == r.id}" v-text="r.fenleimingcheng">
+                                               :class="{active:search.fenlei == r.id}" v-text="r.typename">
 
                                             </a>
 

@@ -2,7 +2,7 @@
 
 export default [
         {
-        label:'账号管理',
+        label:'管理员账号管理',
         to:'',
         children:[
                         {
@@ -14,48 +14,63 @@ export default [
                 to:'/admin/adminsadd',
             },
                         {
-                label:'注册用户管理',
-                to:'/admin/yonghu',
-            },
-                        {
-                label:'添加新用户',
-                to:'/admin/yonghuadd',
-            },
-                        {
                 label:'密码修改',
                 to:'/admin/mod',
             },
                     ]
     },
+    {
+        label:'职工管理',
+        to:'',
+        children:[
+                {
+               label:'职工信息管理',
+               to:'/admin/yonghu',
+        },
+               ]
+    },
+    {
+        label:'前台用户管理',
+        to:'',
+        children:[
+                {
+               label:'注册用户管理',
+               to:'/admin/yonghu',},
+    {
+               label:'添加新用户',
+               to:'/admin/yonghuadd',
+    },
+               ]
+    },
         {
-        label:'地区管理',
+        label:'馆区管理',
         to:'',
         children:[
                         {
-                label:'地区添加',
+                label:'馆区添加',
                 to:'/admin/diquadd',
             },
                         {
-                label:'地区查询',
+                label:'馆区信息查询',
                 to:'/admin/diqu',
             },
                     ]
     },
         {
-        label:'景点信息管理',
+        label:'馆区信息管理',
         to:'',
         children:[
                         {
-                label:'景点信息添加',
+                label:'馆区信息添加',
                 to:'/admin/jingdianxinxiadd',
             },
                         {
-                label:'景点信息查询',
+                label:'馆区信息查询',
                 to:'/admin/jingdianxinxi',
             },
                     ]
     },
-        {
+       /* {
         label:'地方美食管理',
         to:'',
         children:[
@@ -90,9 +105,9 @@ export default [
                 to:'/admin/lvyouxianlu',
             },
                     ]
-    },
+    },*/
         {
-        label:'订单信息管理',
+        label:'票务信息管理',
         to:'',
         children:[
                         {
@@ -104,7 +119,7 @@ export default [
         {
         label:'新闻管理',
         to:'',
-        children:[
+        children:[ 
                         {
                 label:'分类添加',
                 to:'/admin/xinwenfenleiadd',
@@ -122,6 +137,50 @@ export default [
                 to:'/admin/xinwenxinxi',
             },
                     ]
+    },
+    {
+        label:'公告管理',
+        to:'',
+        children:[ 
+                     {
+                label:'公告添加',
+                to:'/admin/xinwenxinxiadd',
+            },
+                        {
+                label:'公告查询',
+                to:'/admin/xinwenxinxi',
+            },
+                    ]
+    },/**待实现 */
+    {
+        label:'活动管理',
+        to:'',
+        children:[ 
+                {
+           label:'活动信息列表',
+           to:'/admin/liuyanban',
+       },
+               ]
+    },/**待实现 */
+    {
+        label:'活动报名信息管理',
+        to:'',
+        children:[ 
+                {
+           label:'报名信息列表',
+           to:'/admin/liuyanban',
+       },
+               ]
+    },
+    {
+        label:'反馈信息管理',
+        to:'',
+        children:[ 
+                {
+           label:'反馈信息列表',
+           to:'/admin/liuyanban',
+       },
+               ]
     },
         {
         label:'系统管理',
@@ -143,10 +202,7 @@ export default [
                 label:'轮播图查询',
                 to:'/admin/lunbotu',
             },
-                        {
-                label:'留言管理',
-                to:'/admin/liuyanban',
-            },
+                        
                     ]
     },
     ]

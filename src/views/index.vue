@@ -15,7 +15,7 @@
         <div>
             <e-container>
                 <div style="margin:10px 0 0 0">
-                    <e-module-model-box title="人气景点">
+                    <e-module-model-box title="人气动物">
                         <el-row :gutter="30">
                             <el-col v-for="r in jingdianxinxilist1" :md="6" :key="r.id" style="margin-bottom: 20px">
                                 <e-module-products
@@ -93,7 +93,7 @@
         <div>
             <e-container>
                 <div style="margin:10px 0 0 0">
-                    <e-module-model-box title="旅游资讯">
+                    <e-module-model-box title="新闻动态">
 
 
                         <div class="">
@@ -104,9 +104,9 @@
                                          :len="80"
                                          :image="r.tupian"
 
-                            >
-                                <span>分类: <e-select-view module="xinwenfenlei" :value="r.fenlei" select="id"
-                                                         show="fenleimingcheng"></e-select-view></span>
+                            > 
+                                <span>分类: <e-select-view module="newstype" :value="r.fenlei" select="id"
+                                                         show="typename"></e-select-view></span>
                                 <span>添加人:{{ r.tianjiaren }}</span>
                                 <span>点击率:{{ r.dianjilv }}</span>
 

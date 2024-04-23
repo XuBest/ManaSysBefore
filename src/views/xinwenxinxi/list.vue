@@ -10,16 +10,17 @@
 
             </div>
                 <!-- 搜索 -->
-        <div class="form-search">
+        <div class="form-search"><!--生成一个新闻信息添加表格-->
             <el-form @submit.prevent.stop :inline="true" size="mini">
                                 <el-form-item label="标题">
                 
-                    <el-input v-model="search.biaoti"></el-input>
+                    <el-input v-model="search.biaoti"></el-input> <!--input进来的信息和search里面的对应属性进行绑定，这个search是一个xinxifenlei类型的数据；
+                    search在后面的date中进行了定义-->
                     
                 </el-form-item>                <el-form-item label="分类">
                 
                     <el-select v-model="search.fenlei" ><el-option label="请选择" value=""></el-option>
-<el-option v-for="m in xinwenfenleiList" :value="m.id" :label="m.fenleimingcheng"></el-option>
+<el-option v-for="m in newstypeList" :value="m.id" :label="m.typename"></el-option>
 </el-select>
                     
                 </el-form-item>                <el-form-item label="添加人">
@@ -39,8 +40,7 @@
         </div>
         
 
-        <el-table border :data="list" style="width: 100%" highlight-current-row
-                    >
+        <el-table border :data="list" style="width: 100%" highlight-current-row >
             
             <el-table-column type="index" label="#"></el-table-column> <!-- 序号 -->
 
@@ -50,7 +50,7 @@
             </el-table-column>
                         <el-table-column label="分类"width="80">
                 <template slot-scope="{row}">
-                     <e-select-view module="xinwenfenlei" :value="row.fenlei" select="id" show="fenleimingcheng"></e-select-view>                </template>
+                     <e-select-view module="newstype" :value="row.fenlei" select="id" show="typename"></e-select-view>                </template>
             </el-table-column>
                         <el-table-column label="图片"width="100">
                 <template slot-scope="{row}">

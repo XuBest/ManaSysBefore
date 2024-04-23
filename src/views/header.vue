@@ -39,17 +39,22 @@
 </router-link>
 </li>
 <li>
-<router-link to="/xinwenxinxi">新闻工作动态
-<i class="el-icon-arrow-down"></i>
+<router-link to="/xinwenxinxi">新闻工作动态   <!--从web-router.js中找映射到的views界面 到xinwenxinxi/index里面-->
+<i class="el-icon-arrow-down"></i><!-- 列表项信息-->
 </router-link>
 <ul class="submenu">
                     <li v-for="m in listMenuxinwenfenlei">
-<router-link :to="'/xinwenxinxi?fenlei='+m.id" v-text="m.fenleimingcheng"></router-link>
+<router-link :to="'/xinwenxinxi?fenlei='+m.id" v-text="m.typename"></router-link>
 </li>
 </ul>
 </li>
 <li>
-<router-link to="/jingdianxinxi">动物园基础信息
+<router-link to="/difangmeishi">动物园基础信息
+</router-link>
+</li>
+
+<li>
+<router-link to="/jingdianxinxi">馆区信息
 <i class="el-icon-arrow-down"></i>
 </router-link>
 <ul class="submenu">
@@ -59,7 +64,7 @@
 </ul>
 </li>
 <li>
-<router-link to="/difangmeishi">馆区信息
+<router-link to="/lvyouxianlu">公告信息
 </router-link>
 </li>
 <li>
@@ -296,7 +301,7 @@
     
         },
         created() {
-                this.loadListMenu('xinwenfenlei','listMenuxinwenfenlei');
+                this.loadListMenu('newstype','listMenuxinwenfenlei');
                 this.loadListMenu('diqu','listMenudiqu');
                 },
         mounted() {
