@@ -68,7 +68,11 @@
 </router-link> 
 </li>
 <li>
-<router-link to="/lvyouxianlu">活动动态
+<router-link to="/ticket">园区购票
+</router-link>
+</li>
+<li>
+<router-link to="/lvyouxianlu">线路预定
 </router-link>
 </li>
 <li>

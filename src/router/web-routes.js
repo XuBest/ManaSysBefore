@@ -70,6 +70,27 @@ export default [
     component: () => import("@/views/yuding/webadd"),
     meta: { title:"预定添加" ,authLogin:true,msg:true }
 },
+
+{
+    path:"ticket",
+        name:"IndexticketList",
+    component: () => import("@/views/ticket/index"),
+    meta: { title:"场馆票务信息"  }
+},
+{
+    path:"ticketdetail",
+        name:"IndexticketDetail",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/ticket/webdetail"),
+    meta: { title:"场馆票务信息详情"  }
+},
+{
+    path:"ticketinfoadd",
+        name:"IndexticketinfoAdd",
+    component: () => import("@/views/ticketinfo/webadd"),
+    meta: { title:"票务添加" ,authLogin:true,msg:true }
+},
+
 {
     path:"difangmeishi",
         name:"IndexdifangmeishiList",

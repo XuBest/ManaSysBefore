@@ -14,8 +14,7 @@ const api = {
     editorPassword :'editPassword',
     checkField:'checkno.do',
 
-        payment:'payment.do',
-    
+    payment:'payment.do',
     collect:'collect.do',
     shoucangjilu: {
         listusername:"shoucangjilu_list2.do",
@@ -157,6 +156,28 @@ const api = {
                 create:"diqu_add.do",
                 edit:"diqu_updt.do",
             },
+
+        ticket:{
+                list:"ticket_list.do",
+                insert:"ticketinsert.do",
+                update:"ticketupdate.do",
+                delete:"ticket_delete.do",
+                detail:"ticket_detail.do",
+                create:"ticket_add.do",
+                edit:"ticket_updt.do",
+                weblist:"ticketlist.do",
+                webdetail:"ticketdetail.do",
+            },
+        ticketinfo:{
+                list:"ticketinfo_list.do",
+                insert:"ticketinfoinsert.do",
+                update:"ticketinfoupdate.do",
+                delete:"ticketinfo_delete.do",
+                detail:"ticketinfo_detail.do",
+                create:"ticketinfo_add.do",
+                edit:"ticketinfo_updt.do",
+                listadder:"ticketinfo_list_adder.do",
+            },
         lvyouxianlu:{
                 list:"lvyouxianlu_list.do",
                 insert:"lvyouxianluinsert.do",
@@ -170,7 +191,7 @@ const api = {
             },
         yuding:{
                 list:"yuding_list.do",
-                insert:"yudinginsert.do",
+                insert:"m.do",
                 update:"yudingupdate.do",
                 delete:"yuding_delete.do",
                 detail:"yuding_detail.do",

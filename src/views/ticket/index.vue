@@ -3,43 +3,19 @@
         <div>
 <e-container>
             <div  style="margin:10px 0 0 0;background-color:#FFFFFF">
-<e-module-model-box title="旅游线路">
+<e-module-model-box title="场馆票务">
     <div class="snick clearfix">
                 <div style="margin-bottom: 20px">
             <form action="javascript:;" @submit="searchSubmit" class="form-search">
     <table class="jd-search">
-        <tbody>
+        <tbody> 
                     <tr>
                 <td class="label">
-                    出发地                </td>
+                    场馆名称                </td>
                 <td>
                                             <el-input
                                 type="text" style="width: 150px"
-                                v-model="search.chufadi"
-                                placeholder="请输入关键词">
-
-                        </el-input>
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="label">
-                    途经地                </td>
-                <td>
-                                            <el-input
-                                type="text" style="width: 150px"
-                                v-model="search.tujingdi"
-                                placeholder="请输入关键词">
-
-                        </el-input>
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="label">
-                    终点                </td>
-                <td>
-                                            <el-input
-                                type="text" style="width: 150px"
-                                v-model="search.zhongdian"
+                                v-model="search.ticketname"
                                 placeholder="请输入关键词">
 
                         </el-input>
@@ -58,10 +34,10 @@
         <el-row>
         <el-col class="snock" v-for="r in list" :md="6">
             <div class="services">
-                <router-link :to="'/lvyouxianludetail?id='+r.id">
-                    <e-img-box :src="r.tupian" class="snocks"></e-img-box>
-                    <h2 v-html="$substr(r.xianlumingcheng,15)"></h2>
-                    <p v-html="$substr(r.xianlujianjie,30)"></p>
+                <router-link :to="'/ticketdetail?id='+r.id">
+                    <e-img-box :src="r.picture" class="snocks"></e-img-box>
+                    <h2 v-html="$substr(r.ticketname,15)"></h2>
+                    <p v-html="$substr(r.overview,30)"></p>
                 </router-link>
             </div>
         </el-col>
@@ -90,22 +66,18 @@
             return {
                 loading:false,
                 list:[],
+                list:[],
                 search:{
-
-                    
-                xianlubianhao:'',                
-                xianlumingcheng:'',               
-                tupian:'',                 
-                chufadi:'',                  
-                tujingdi:'',                  
-                zhongdian:'',                 
-                jiage_start:'',
-                jiage_end:'',                
-                liulanliang_start:'',
-                liulanliang_end:'',    
-                xianlutese:'',
-                xianlujianjie:'',      
-                addtime:'',
+                    ticketkey:'',                
+                    ticketname:'',               
+                    picture:'',                        
+                    price_start:'',
+                    price_end:'',                
+                    counter_start:'',
+                    counter_end:'',    
+                    special:'',
+                    overview:'',      
+                    addtime:'',
                     
                                     },
                 page:1, // 当前页
@@ -137,7 +109,7 @@
                         query: filter
                     });
                 }
-                this.$post(api.lvyouxianlu.weblist , filter).then(res=>{
+                this.$post(api.ticket.weblist , filter).then(res=>{
                     this.loading = false;
                     if(res.code == api.code.OK)
                     {

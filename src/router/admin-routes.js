@@ -318,6 +318,60 @@ export default [
     component: () => import("@/views/yuding/updt"),
     meta: { title:"编辑预定",authLogin:true }
 },
+
+/**这是ticket,ticketinfo的路径映射 */
+{
+    path:"ticket",
+        name:"AdminticketList",
+    component: () => import("@/views/ticket/list"),
+    meta: { title:"园区票务列表",authLogin:true }
+},
+{
+    path:"ticketadd",
+        name:"AdminticketAdd",
+    component: () => import("@/views/ticket/add"),
+    meta: { title:"添加收费馆区",authLogin:true }
+},
+{
+    path:"ticketupdt",
+        name:"AdminticketUpdt",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/ticket/updt"),
+    meta: { title:"编辑馆区收费信息",authLogin:true }
+},
+{
+    path:"ticketdetail",
+        props:route=>({id:route.query.id}),
+    name:"AdminticketDetail",
+    component: () => import("@/views/ticket/detail"),
+    meta: { title:"馆区收费详情",authLogin:true }
+},
+{
+    path:"ticketinfo",
+        name:"AdminticketinfoList",
+    component: () => import("@/views/ticketinfo/list"),
+    meta: { title:"预定票务列表",authLogin:true }
+},
+{
+    path:"ticketinfo_adder",
+        name:"AdminticketinfoListadder",
+    component: () => import("@/views/ticketinfo/list-adder"),
+    meta: { title:"预定票务列表",authLogin:true }
+},
+{
+    path:"ticketinfoadd",
+        name:"AdminticketinfoAdd",
+    component: () => import("@/views/ticketinfo/add"),
+    meta: { title:"添加票务预定",authLogin:true }
+},
+{
+    path:"ticketinfoupdt",
+        name:"AdminticketinfoUpdt",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/ticketinfo/updt"),
+    meta: { title:"编辑票务预定",authLogin:true }
+},
+
 {
     path:"difangmeishi",
         name:"AdmindifangmeishiList",

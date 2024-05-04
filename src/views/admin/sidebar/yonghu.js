@@ -8,12 +8,12 @@ export default [
             {
                 label:'活动报名信息',
                 to:'/admin/',
-                /*label:'我的预定查询',
-                to:'/admin/yuding_yudingren',*/
+                label:'我的预定查询',
+                to:'/admin/yuding_yudingren',
             },
             {
                 label:'票务信息',
-                to:'/admin/',
+                to:'/admin/ticketinfo_adder',
             },
             {
                 label:'留言反馈信息',
@@ -33,10 +33,10 @@ export default [
                 label:'修改密码',
                 to:'/admin/mod',
             },
-                   /*     {
+                {
                 label:'我的收藏',
                 to:'/admin/shoucangjilu',
-            },*/
+            },
                        
                     ]
     },

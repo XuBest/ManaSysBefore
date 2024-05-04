@@ -110,6 +110,24 @@ export default [
         label:'票务信息管理',
         to:'',
         children:[
+                {
+                        label:'馆区票务信息添加',
+                        to:'/admin/ticketadd',
+                    },
+                    {
+                        label:'馆区票务信息查询',
+                        to:'/admin/ticket',
+                    },
+                                {
+                        label:'用户票务信息查询',
+                        to:'/admin/ticketinfo',
+                    },
+                    ]
+    },
+    {
+        label:'预定信息管理',
+        to:'',
+        children:[
                         {
                 label:'预定查询',
                 to:'/admin/yuding',
