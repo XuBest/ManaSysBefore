@@ -18,7 +18,7 @@
             font-family: 'Open Sans', sans-serif;
             border-bottom: 1px solid #e3e3e3;
             padding-bottom: 10px;
-            color: #4694c5;
+            color: rgba(196, 0, 0, 0.9921568627) ;
             text-transform: uppercase;
             font-weight: bold;
             margin-top: 0px;

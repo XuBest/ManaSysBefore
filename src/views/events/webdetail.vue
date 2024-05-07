@@ -1,76 +1,89 @@
 <template>
-    <div class="jingdianxinxi-detail" v-loading="loading">
+    <div class="lvyouxianlu-detail" v-loading="loading">
         <div>
-<e-container>
-            <div  style="margin:10px 0 0 0">
-<e-module-model-box title="动物详情">
+<e-container> 
+            <div  style="margin:10px 0 0 0;background-color:#FFFFFF">
+<e-module-model-box title="活动信息详情">
     
 <div class="">
     <div class="goods-info clearfix">
         <div class="gallery-list">
-            <e-shangpinban :images="map.tupian"></e-shangpinban>
+            <e-shangpinban :images="map.picture"></e-shangpinban>
         </div>
         <div class="goods-right-content">
-            <h3 class="title" v-text="map.jingdianmingcheng"></h3>
+            <h3 class="title" v-text="map.eventName"></h3>
             <div class="descount">
                                     <div>
                         <span class="name">
-                            所属馆区：
+                           活动容量：
                         </span>
                         <span class="val">
-                             <e-select-view module="diqu" :value="map.suoshudiqu" select="id" show="diqumingcheng"></e-select-view>                        </span>
+                            {{ map.maxJoin }}                        </span>
                     </div>
-                                   <!-- <div>
-                       <span class="name">
-                            地址：
+                    <div>
+                        <span class="name">
+                           报名成功人数：
                         </span>
                         <span class="val">
-                            {{ map.dizhi }}                        </span>
+                            {{ map.success }}                        </span>
                     </div>
                                     <div>
                         <span class="name">
-                            开放时间：
+                            活动发布时间：
                         </span>
                         <span class="val">
-                            {{ map.kaifangshijian }}                        </span>
+                            {{ map.publishTime }}                        </span>
                     </div>
-                                    <div>
+                    <div>
                         <span class="name">
-                            附近美食：
+                            截止时间：
                         </span>
                         <span class="val">
-                            {{  map.fujinmeishi  }}                        </span>
+                            {{ map.endTime }}                        </span>
                     </div>
-                                    <div>
-                        <span class="name">
-                            票价：
-                        </span>
-                        <span class="val">
-                            {{ map.piaojia }}                        </span>
-                    </div> -->
-                                    <div>
+                    <div>
                         <span class="name">
                             浏览量：
                         </span>
                         <span class="val">
-                            {{ map.liulanliang }}                        </span>
+                            {{ map.counter }}                        </span>
                     </div>
                             </div>
-
-            
+ 
+                            <el-button type="primary" @click="$router.push('/registrationinfoadd?id='+map.id)">报名活动</el-button> 
                             <e-collect v-model="isCollect"
-                           module="jingdianxinxi"
-                           ziduan="jingdianmingcheng"
+                           module="events"
+                           ziduan="eventName"
                            :id="map.id"></e-collect>
             
         </div>
     </div>
-    <div class="goods-content" v-html="map.miaoshu">
-
-    </div>
+    <div class="goods-content">
+            </div>
 </div>
 
 </e-module-model-box>
+
+</div>    
+
+</e-container>
+</div>
+<div>
+<e-container>
+            <div  style="margin:15px 0 15px 0;background-color:#FFFFFF">
+
+
+<e-container>
+    <el-tabs type="border-card">
+                <el-tab-pane label="内容">
+            <div  style="margin:15px 0 15px 0;background-color:#FFFFFF">
+
+<div style="text-indent: 2em">
+<div v-html="map.eventContent"></div></div>
+
+</div>        </el-tab-pane>
+            </el-tabs>
+</e-container>
 
 </div>    
 
@@ -87,18 +100,18 @@
             return {
                 loading:false,   // 加载
                                 isCollect:false, // 是否已经收藏
-                                map:{
-                        jingdianbianhao:'',
-                        jingdianmingcheng:'',
-                        suoshudiqu:'',
-                        tupian:'',
-                        kaifangshijian:'',
-                        fujinmeishi:'',
-                        dizhi:'',
-                        piaojia:'',
-                        liulanliang:'',
-                        miaoshu:'',
-                        addtime:'',
+                         map:{
+                            eventName:'',                
+                            eventContent:'',               
+                            maxJoin:'',  
+                            publishTime:'',
+                            endTime:'',
+                            eventStatus:'正在报名中',
+                            counter:'',
+                            success:'',
+                            reginum:'',                
+                            picture:'',
+                            
                             },
                             }
         },
@@ -122,7 +135,7 @@
             loadDetail(){
                 if(this.loading) return;
                 this.loading = true;
-                this.$get(api.jingdianxinxi.webdetail , {
+                this.$get(api.events.webdetail , {
                     id:this.id
                 }).then(res=>{
                     this.loading = false;

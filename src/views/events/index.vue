@@ -3,19 +3,31 @@
         <div>
 <e-container>
             <div  style="margin:10px 0 0 0;background-color:#FFFFFF">
-<e-module-model-box title="场馆票务">
+<e-module-model-box title="活动">
     <div class="snick clearfix">
                 <div style="margin-bottom: 20px">
             <form action="javascript:;" @submit="searchSubmit" class="form-search">
     <table class="jd-search">
-        <tbody> 
+        <tbody>  
                     <tr>
                 <td class="label">
-                    场馆名称                </td>
+                    活动名称                </td>
                 <td>
-                                            <el-input
+                        <el-input
                                 type="text" style="width: 150px"
-                                v-model="search.ticketname"
+                                v-model="search.eventName"
+                                placeholder="请输入关键词">
+
+                        </el-input>
+                                    </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    活动状态                </td>
+                <td>
+                        <el-input
+                                type="text" style="width: 150px"
+                                v-model="search.eventStatus"
                                 placeholder="请输入关键词">
 
                         </el-input>
@@ -34,10 +46,10 @@
         <el-row>
         <el-col class="snock" v-for="r in list" :md="6">
             <div class="services">
-                <router-link :to="'/ticketdetail?id='+r.id">
+                <router-link :to="'/eventsdetail?id='+r.id">
                     <e-img-box :src="r.picture" class="snocks"></e-img-box>
-                    <h2 v-html="$substr(r.ticketname,15)"></h2>
-                    <p v-html="$substr(r.overview,30)"></p>
+                    <h2 v-html="$substr(r.eventName,15)"></h2>
+                    <p v-html="$substr(r.eventContent,30)"></p>
                 </router-link>
             </div>
         </el-col>
@@ -56,7 +68,7 @@
     import api from '@/api';
     import { extend } from '@/utils/extend';
     import objectDiff from 'objectdiff';
- 
+
     
     /**
      * 后台列表页面
@@ -67,17 +79,17 @@
                 loading:false,
                 list:[],
                 search:{
-                    ticketkey:'',                
-                    ticketname:'',               
-                    picture:'',                        
-                    price_start:'',
-                    price_end:'',                
+                    eventName:'',                
+                    eventContent:'',               
+                    maxJoin:'',  
+                    publishTime:'',
+                    endTime:'',
+                    eventStatus:'',
                     counter_start:'',
-                    counter_end:'',    
-                    special:'',
-                    overview:'',      
-                    addtime:'',
-                    
+                    counter_end:'',  
+                    success:'',
+                    reginum:'',                
+                    picture:'',
                                     },
                 page:1, // 当前页
                 pagesize:12, // 页大小
@@ -108,7 +120,7 @@
                         query: filter
                     });
                 }
-                this.$post(api.ticket.weblist , filter).then(res=>{
+                this.$post(api.events.weblist , filter).then(res=>{
                     this.loading = false;
                     if(res.code == api.code.OK)
                     {

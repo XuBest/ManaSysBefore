@@ -40,8 +40,12 @@
 
                         <el-button type="primary" native-type="submit" class="btn btn-primary btn-lg btn-block btn-uppercase mb-4">登录系统</el-button>
 
-                        <div class="text-center">
-                            版权所有：{{ setting.title }}
+                        <div class="text-center1">
+                           若没有账号，请前往<router-link to="/yonghuadd">注册</router-link>
+                        </div>
+
+                        <div class="text-center2">
+                            探索动物世界,共筑生态乐园
                         </div>
                     </form>
                 </el-col>
@@ -101,6 +105,10 @@
         margin-bottom: 1.5rem !important
     }
 
+.text-center2{
+    text-align: center; 
+    margin-top: 285px;
+}
     .page-loader span {
         text-transform: uppercase;
         letter-spacing: 1px;

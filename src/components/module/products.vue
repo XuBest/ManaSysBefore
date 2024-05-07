@@ -12,7 +12,7 @@
                     <h2 class="title h4">
                         <a href="javascript:;" @click="$gotoUrl">{{title}}</a>
                     </h2>
-                    <sup v-if="price!=''" class="price">￥ {{price}}</sup>
+                    <sup v-if="price!=''" class="price">{{price}}</sup>
                     <span class="description clearfix" v-text="$substr(description , 30)">
                     </span>
                 </div>
@@ -145,7 +145,7 @@
             }
             > span {
                 display: block;
-                transition: all 0.3s;
+                transition:ball 0.3s;
                 transform: scale(0);
             }
             > span:nth-child(1) {

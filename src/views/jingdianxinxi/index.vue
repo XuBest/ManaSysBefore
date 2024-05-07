@@ -3,14 +3,14 @@
         <div>
 <e-container>
             <div  style="margin:10px 0 0 0">
-<e-module-model-box title="景点列表">
+<e-module-model-box title="馆区动物列表">
     
 <form action="javascript:;" @submit="searchSubmit" class="form-search">
     <table class="jd-search">
         <tbody>
                     <tr>
                 <td class="label">
-                    所属地区                </td>
+                    所属馆区                </td>
                 <td>
                                             <p class="search-radio">
 
@@ -28,7 +28,7 @@
             </tr>
                     <tr>
                 <td class="label">
-                    景点名称                </td>
+                    动物名称                </td>
                 <td>
                                             <el-input
                                 type="text" style="width: 150px"

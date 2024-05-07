@@ -83,12 +83,33 @@ export default [
     props:route=>({id:route.query.id}),
     component: () => import("@/views/ticket/webdetail"),
     meta: { title:"场馆票务信息详情"  }
-},
+}, 
 {
     path:"ticketinfoadd",
         name:"IndexticketinfoAdd",
     component: () => import("@/views/ticketinfo/webadd"),
     meta: { title:"票务添加" ,authLogin:true,msg:true }
+},
+/**活动以及活动报名信息，前台的路径跳转；
+ * 即用户可以查看活动列表，查看活动详情信息，去报名活动 ；*/
+{
+    path:"events",
+        name:"IndexeventsList",
+    component: () => import("@/views/events/index"),
+    meta: { title:"活动信息"  }
+},
+{ 
+    path:"eventsdetail",
+        name:"IndexeventsDetail",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/events/webdetail"),
+    meta: { title:"活动信息详情"  }
+}, 
+{
+    path:"registrationinfoadd",
+        name:"IndexregistrationinfoAdd",
+    component: () => import("@/views/registrationinfo/webadd"),
+    meta: { title:"报名活动" ,authLogin:true,msg:true }
 },
 
 {

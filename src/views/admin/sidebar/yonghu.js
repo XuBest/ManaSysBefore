@@ -6,11 +6,15 @@ export default [
         to:'',
         children:[
             {
-                label:'活动报名信息',
-                to:'/admin/',
+                
                 label:'我的预定查询',
                 to:'/admin/yuding_yudingren',
             },
+            {
+                label:'活动报名信息',
+                to:'/admin/registrationinfo_adder',
+            },
+           
             {
                 label:'票务信息',
                 to:'/admin/ticketinfo_adder',

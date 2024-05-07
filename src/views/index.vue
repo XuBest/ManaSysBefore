@@ -20,7 +20,7 @@
                             <el-col v-for="r in jingdianxinxilist1" :md="6" :key="r.id" style="margin-bottom: 20px">
                                 <e-module-products
                                         :title="r.jingdianmingcheng"
-                                        :price="r.piaojia" :description="r.miaoshu"
+                                        :description="r.miaoshu"
                                         :image="r.tupian"
                                         :image-height="100"
                                         :is-scale="true"
@@ -65,19 +65,19 @@
         <div>
             <e-container>
                 <div style="margin:10px 0 0 0">
-                    <e-module-model-box title="旅游线路">
+                    <e-module-model-box title="购票">
 
 
                         <el-row :gutter="20">
-                            <el-col v-for="r in lvyouxianlulist3" :md="6" :key="r.id" style="margin-bottom: 20px">
+                            <el-col v-for="r in ticketinfo3" :md="6" :key="r.id" style="margin-bottom: 20px">
                                 <e-module-blog
-                                        :title="r.xianlumingcheng"
-                                        :price="r.jiage" :content="r.xianlujianjie"
+                                        :title="r.ticketname"
+                                        :price="r.price" :content="r.special"
                                         :time="r.addtime"
-                                        :image="r.tupian"
+                                        :image="r.picture"
                                         :image-height="80"
                                         :is-scale="true"
-                                        :to="'/lvyouxianludetail?id='+r.id">
+                                        :to="'/ticketdetail?id='+r.id">
 
                                 </e-module-blog>
                             </el-col>
@@ -135,8 +135,9 @@
                 bhtList: [],
                 jingdianxinxilist1: [],
                 difangmeishilist2: [],
-                lvyouxianlulist3: [],
+               // lvyouxianlulist3: [],
                 xinwenxinxilist4: [],
+                ticketinfo3: [],
             }
         },
         watch: {},

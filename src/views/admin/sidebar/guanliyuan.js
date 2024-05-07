@@ -6,15 +6,15 @@ export default [
         to:'',
         children:[
                         {
-                label:'管理员账号管理',
+                label:'管理员管理',
                 to:'/admin/admins',
             },
                         {
-                label:'管理员账号添加',
+                label:'添加账号',
                 to:'/admin/adminsadd',
             },
                         {
-                label:'密码修改',
+                label:'修改密码',
                 to:'/admin/mod',
             },
                     ]
@@ -24,20 +24,20 @@ export default [
         to:'',
         children:[
                 {
-               label:'职工信息管理',
+               label:'信息管理',
                to:'/admin/yonghu',
         },
                ]
     },
     {
-        label:'前台用户管理',
+        label:'用户管理',
         to:'',
         children:[
                 {
-               label:'注册用户管理',
+               label:'信息管理',
                to:'/admin/yonghu',},
     {
-               label:'添加新用户',
+               label:'新增用户',
                to:'/admin/yonghuadd',
     },
                ]
@@ -47,27 +47,22 @@ export default [
         to:'',
         children:[
                         {
-                label:'馆区添加',
+                label:'增加馆区',
                 to:'/admin/diquadd',
             },
                         {
-                label:'馆区信息查询',
+                label:'馆区信息',
                 to:'/admin/diqu',
             },
-                    ]
-    },
-        {
-        label:'馆区信息管理',
-        to:'',
-        children:[
-                        {
-                label:'馆区信息添加',
+            {
+                label:'增加馆内动物信息',
                 to:'/admin/jingdianxinxiadd',
             },
                         {
-                label:'馆区信息查询',
+                label:'查询馆内动物信息',
                 to:'/admin/jingdianxinxi',
             },
+
                     ]
     },
        /* {
@@ -107,19 +102,19 @@ export default [
                     ]
     },*/
         {
-        label:'票务信息管理',
+        label:'票务管理',
         to:'',
         children:[
                 {
-                        label:'馆区票务信息添加',
+                        label:'添加票务信息',
                         to:'/admin/ticketadd',
                     },
                     {
-                        label:'馆区票务信息查询',
+                        label:'馆区票务',
                         to:'/admin/ticket',
                     },
                                 {
-                        label:'用户票务信息查询',
+                        label:'查询票务信息',
                         to:'/admin/ticketinfo',
                     },
                     ]
@@ -139,19 +134,19 @@ export default [
         to:'',
         children:[ 
                         {
-                label:'分类添加',
+                label:'添加分类',
                 to:'/admin/xinwenfenleiadd',
             },
                         {
-                label:'分类查询',
+                label:'查询分类',
                 to:'/admin/xinwenfenlei',
             },
                         {
-                label:'新闻添加',
+                label:'添加新闻',
                 to:'/admin/xinwenxinxiadd',
             },
                         {
-                label:'新闻查询',
+                label:'查询新闻',
                 to:'/admin/xinwenxinxi',
             },
                     ]
@@ -161,13 +156,13 @@ export default [
         to:'',
         children:[ 
                      {
-                label:'公告添加',
+                label:'添加公告',
                 to:'/admin/noticeboardadd',
             },
                         {
-                label:'公告查询',
+                label:'查询公告',
                 to:'/admin/noticeboard',
-            },
+            }, 
                     ]
     },/**待实现 */
     {
@@ -175,27 +170,30 @@ export default [
         to:'',
         children:[ 
                 {
-           label:'活动信息列表',
-           to:'/admin/liuyanban',
-       },
+           label:'活动信息',
+           to:'/admin/events',
+       },{
+        label:'新增活动',
+        to:'/admin/eventsadd',
+    },
                ]
     },/**待实现 */
     {
-        label:'活动报名信息管理',
+        label:'活动报名信息',
         to:'',
         children:[ 
                 {
-           label:'报名信息列表',
-           to:'/admin/liuyanban',
+           label:'报名信息管理',
+           to:'/admin/registrationinfo',
        },
                ]
     },
     {
-        label:'反馈信息管理',
+        label:'反馈信息',
         to:'',
         children:[ 
                 {
-           label:'反馈信息列表',
+           label:'反馈信息管理',
            to:'/admin/liuyanban',
        },
                ]

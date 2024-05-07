@@ -1,46 +1,66 @@
 <template>
-    
+    <!--管理员端的 活动详情信息的查看 可展示的信息和用户端的detail页面可展示的信息不同-->
     <div class="lvyouxianlu-detail" v-loading="loading" ref="print">
-        <el-page-header @back="goBack" content="详情页面"></el-page-header>
+        <el-page-header @back="goBack" content="活动详情页面"></el-page-header>
         <div class="admin-detail">
 
-           <div class="detail detail-text">
+            <div class="detail detail-text">
                 <div class="detail-title">
-                    票务编号：
+                    活动名称：
                 </div>
                 <div class="detail-content">
-                    {{ map.ticketkey }}
+                    {{ map.eventName }}
                 </div>
-            </div>                       
-            <div class="detail detail-longtext">
+            </div> 
+            
+            <div class="detail detail-autotime">
                 <div class="detail-title">
-                    票务名称：
+                    活动容量：
                 </div>
                 <div class="detail-content">
-                    {{ map.ticketname }}
+                    {{ map.maxJoin }}
                 </div>
-            </div>                                              
-            <div class="detail detail-money">
+            </div>   
+            <div class="detail detail-autotime">
                 <div class="detail-title">
-                    票价：
+                    已报名人数：
                 </div>
                 <div class="detail-content">
-                    {{ map.price }}
+                    {{ map.reginum }}
                 </div>
-            </div>                        
-        <div class="detail detail-number">
+            </div>   
+            <div class="detail detail-autotime">
+                <div class="detail-title">
+                    报名成功人数：
+                </div>
+                <div class="detail-content">
+                    {{ map.success }}
+                </div>
+            </div>   
+            <div class="detail detail-autotime">
+                <div class="detail-title">
+                    活动发布时间：
+                </div>
+                <div class="detail-content">
+                    {{ map.publishTime }}
+                </div>
+            </div>   
+
+            <div class="detail detail-number">
                 <div class="detail-title">
                     浏览量：
                 </div>
                 <div class="detail-content">
                     {{ map.counter }}
                 </div>
-            </div>                                                <div class="detail detail-autotime">
+            </div> 
+
+            <div class="detail detail-autotime">
                 <div class="detail-title">
-                    添加时间：
+                    活动截止时间：
                 </div>
                 <div class="detail-content">
-                    {{ map.addtime }}
+                    {{ map.endTime }}
                 </div>
             </div>            
             <div class="detail detail-images">
@@ -50,23 +70,15 @@
                 <div class="detail-content">
                     <e-images :src="map.picture" type="detail"></e-images>
                 </div>
-            </div>                                   
+            </div>  
             <div class="detail detail-editor">
                 <div class="detail-title">
-                    特色：
+                    活动内容：
                 </div>
                 <div class="detail-content">
-                    <div v-html="map.special"></div>
+                    <div v-html="map.eventContent"></div>
                 </div>
-            </div><div class="detail detail-editor">
-                <div class="detail-title">
-                    简介：
-                </div>
-                <div class="detail-content">
-                    <div v-html="map.overview"></div>
-                </div>
-            </div>
-        </div>
+            </div>                                
         <div class="mt10">
             <el-button type="default" class="hidePrint" @click="$router.go(-1)">
                 返回
@@ -76,6 +88,7 @@
             </el-button>
         </div>
     </div>
+</div>
 </template>
 <style type="text/scss" scoped lang="scss">
 .lvyouxianlu-detail{
@@ -164,7 +177,7 @@
             loadDetail(){
                 if(this.loading) return;
                 this.loading = true;
-                this.$get(api.ticket.detail , {
+                this.$get(api.events.detail , {
                     id:this.id
                 }).then(res=>{
                     this.loading = false;

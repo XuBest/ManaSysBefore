@@ -1,13 +1,13 @@
 import store from '@/store';
 
-export default [
+export default [ 
 {
     path: 'pay',
         name: 'AdminPay',
     component: () => import('@/views/zhifu/zhifu'),
     meta: {authLogin: true},
 },
-
+ 
 {
     path: 'shoucangjilu',
         name: 'Adminshoucangjilu',
@@ -372,6 +372,59 @@ export default [
     meta: { title:"编辑票务预定",authLogin:true }
 },
 
+/**这是events,registrationinfo的路径映射 */
+{
+    path:"events",
+        name:"AdmineventsList",
+    component: () => import("@/views/events/list"),
+    meta: { title:"活动列表",authLogin:true }
+},
+{
+    path:"eventsadd",
+        name:"AdmineventsAdd",
+    component: () => import("@/views/events/add"),
+    meta: { title:"添加活动",authLogin:true }
+},
+{
+    path:"eventsupdt",
+        name:"AdmineventsUpdt",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/events/updt"),
+    meta: { title:"编辑活动信息",authLogin:true }
+},
+{
+    path:"eventsdetail",
+        props:route=>({id:route.query.id}),
+    name:"AdmineventsDetail",
+    component: () => import("@/views/events/detail"),
+    meta: { title:"活动详情",authLogin:true }
+},
+{
+    path:"registrationinfo",
+        name:"AdminregistrationinfoList",
+    component: () => import("@/views/registrationinfo/list"),
+    meta: { title:"活动报名信息列表",authLogin:true }
+},
+{
+    path:"registrationinfo_adder",
+        name:"AdminregistrationinfoListadder",
+    component: () => import("@/views/registrationinfo/list-adder"),
+    meta: { title:"该用户活动报名信息列表",authLogin:true }
+},
+{
+    path:"registrationinfoadd",
+        name:"AdminregistrationinfoAdd",
+    component: () => import("@/views/registrationinfo/add"),
+    meta: { title:"活动信息添加",authLogin:true }
+},
+{/**活动报名信息更新，即审核信息 */
+    path:"registrationinfoupdt",
+        name:"AdminregistrationinfoUpdt",
+    props:route=>({id:route.query.id}),
+    component: () => import("@/views/registrationinfo/updt"),
+    meta: { title:"处理报名信息",authLogin:true }
+},
+/**地方美食、地区信息管理---->馆区信息 */
 {
     path:"difangmeishi",
         name:"AdmindifangmeishiList",

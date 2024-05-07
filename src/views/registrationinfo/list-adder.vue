@@ -1,25 +1,25 @@
 <template>
- 
+
     <div class="v-list" v-loading="loading" element-loading-text="加载中">
 
         <el-card class="box-card">
             <div slot="header" class="clearfix">
                 <span class="title">
-                票务信息列表
+                活动信息列表
                 </span>
-
+<!--这是用户可以看到的，即自己报名了啥活动的，即可看到自己账号下边的活动报名信息列表-->
             </div>
             <!-- 搜索 -->
             <div class="form-search">
                 <el-form @submit.prevent.stop :inline="true" size="mini">
-                    <el-form-item label="场馆编号">
+                    <el-form-item label="活动名称">
 
-                        <el-input v-model="search.ticketkey"></el-input>
+                        <el-input v-model="search.eventName"></el-input>
 
                     </el-form-item>
-                    <el-form-item label="场馆名称">
+                    <el-form-item label="报名状态">
 
-                        <el-input v-model="search.ticketname"></el-input>
+                        <el-input v-model="search.regiStatus"></el-input>
 
                     </el-form-item>
                     <el-form-item>
@@ -29,78 +29,51 @@
             </div>
 
 
-            <el-table border :data="list" style="width: 100%" highlight-current-row
-            >
+            <el-table border :data="list" style="width: 100%" highlight-current-row>
 
                 <el-table-column type="index" label="#"></el-table-column> <!-- 序号 -->
 
-                <el-table-column label="场馆编号" width="130">
+
+                <el-table-column label="活动名称">
                     <template slot-scope="{row}">
-                        {{ row.ticketkey }}
+                        {{ row.eventName }}
                     </template>
                 </el-table-column>
-                <el-table-column label="场馆名称">
+                
+                <el-table-column label="报名时间" width="80">
                     <template slot-scope="{row}">
-                        {{ row.ticketname }}
+                        {{ row.regiTime }}
                     </template>
                 </el-table-column>
-                <el-table-column label="票价" width="80">
+                <el-table-column label="活动参与人" width="130">
                     <template slot-scope="{row}">
-                        {{ row.price }}
-                    </template>
-                </el-table-column>
-                <el-table-column label="订单号" width="130">
-                    <template slot-scope="{row}">
-                        {{ row.ordernum }}
-                    </template>
-                </el-table-column>
-                <el-table-column label="预订时间" width="120">
-                    <template slot-scope="{row}">
-                        {{ row.ordertime }}
-                    </template>
-                </el-table-column>
-                <el-table-column label="用票人姓名" width="130">
-                    <template slot-scope="{row}">
-                        {{ row.ordername }}
+                        {{ row.reserver }}
                     </template>
                 </el-table-column>
                 <el-table-column label="联系方式" width="130">
                     <template slot-scope="{row}">
-                        {{ row.phonenum }}
+                        {{ row.telephone }}
                     </template>
                 </el-table-column>
-                <el-table-column label="票务状态" width="130">
+                <el-table-column label="报名状态" width="130">
                     <template slot-scope="{row}">
-                        {{ row.ticketstatus }}
+                        {{ row.regiStatus }}
                     </template>
                 </el-table-column>
                 <el-table-column label="备注">
                     <template slot-scope="{row}">
-                        {{ row.notice }}
+                        {{ row.notes }}
                     </template>
                 </el-table-column>
-                <el-table-column label="预订人" width="80">
+                <el-table-column label="报名人" width="80">
                     <template slot-scope="{row}">
                         {{ row.adder }}
-                    </template>
-                </el-table-column>
-
-
-                <el-table-column label="是否支付" width="120">
-                    <template slot-scope="{row}">
-                        {{ row.ifpay }}
-                        <el-button size="mini" type="primary"
-                                   @click="$goto({path:'/admin/pay' , query:{biao:'ticketinfo' , id:row.id,ordersn:row.ordernum,zongji:row.price } })"
-                                   v-if="row.ifpay=='否'">
-                            去支付
-                        </el-button>
                     </template>
                 </el-table-column>
 
                 <el-table-column label="操作">
                     <template slot-scope="{row}">
                         <el-button-group>
-
 
                         </el-button-group>
                     </template>
@@ -143,8 +116,8 @@
                 list: [],
                 search: {
 
-                    ticketkey:'',                
-                    ticketname:'', 
+                    eventName:'',                
+                    regiStatus:'', 
 
                 },
                 total: {},
@@ -182,7 +155,7 @@
                         query: filter
                     });
                 }
-                this.$post(api.ticketinfo.listadder, filter).then(res => {
+                this.$post(api.registrationinfo.listadder, filter).then(res => {
                     this.loading = false;
                     if (res.code == api.code.OK) {
                         extend(this, res.data);
@@ -201,7 +174,7 @@
                 }).then(() => {// 确定操作
 
                     this.loading = true; // 滚动条
-                    this.$post(api.ticketinfo.delete, {// 提交后台
+                    this.$post(api.registrationinfo.delete, {// 提交后台
                         id: row.id
                     }).then(res => {
                         this.loading = false;

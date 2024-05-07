@@ -1,7 +1,7 @@
 
 import http from "@/utils/ajax/http"
 import {extend} from "@/utils/extend"
-
+ 
 const api = {
     code:{
         OK:0    },
@@ -177,7 +177,28 @@ const api = {
                 create:"ticketinfo_add.do",
                 edit:"ticketinfo_updt.do",
                 listadder:"ticketinfo_list_adder.do",
-            },
+            }, 
+        events:{
+            list:"events_list.do",
+            insert:"eventsinsert.do",
+            update:"eventsupdate.do",
+            delete:"events_delete.do",
+            detail:"events_detail.do",
+            create:"events_add.do",
+            edit:"events_updt.do",
+            weblist:"eventslist.do",
+            webdetail:"eventsdetail.do",
+        },
+        registrationinfo:{
+            list:"registrationinfo_list.do",
+            insert:"registrationinfoinsert.do",
+            update:"registrationinfoupdate.do",
+            delete:"registrationinfo_delete.do",
+            detail:"registrationinfo_detail.do",
+            create:"registrationinfo_add.do",
+            edit:"registrationinfo_updt.do",
+            listadder:"registrationinfo_list_adder.do",
+        },
         lvyouxianlu:{
                 list:"lvyouxianlu_list.do",
                 insert:"lvyouxianluinsert.do",
