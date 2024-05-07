@@ -26,7 +26,7 @@
                         </td>
                         <td>
                             <el-popconfirm  icon="el-icon-info" iconColor="red" title="确定删除？" @confirm="deleteItem(k,v)" @onConfirm="deleteItem(k,v)">
-                            <el-button size="mini" type="danger" slot="reference" icon="el-icon-delete-solid"></el-button>
+                            <el-button size="mini" class="mycustom-button" slot="reference" icon="el-icon-delete-solid"></el-button>
                             </el-popconfirm>
                         </td>
                     </tr>

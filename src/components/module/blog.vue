@@ -154,7 +154,9 @@ export default {
                 position: absolute;
                 right: 10px;
                 bottom: 10px;
-                color: #F53737;
+                color: rgba(196, 0, 0, 0.9921568627) 
+
+;
                 font-size: 18px;
             }
         }

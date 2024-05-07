@@ -41,7 +41,7 @@
         </div>
         <div class="ksTime" v-if="ksTimeText">{{ ksTimeText }}</div>
         <div class="mt10">
-            <el-button type="success" @click="submitPost">提交</el-button>
+            <el-button class="mycustom-button" @click="submitPost">提交</el-button>
         </div>
     </div>
 </template>

@@ -5,24 +5,24 @@
         <el-card class="box-card">
             <div slot="header" class="clearfix">
                 <span class="title">
-                地方美食列表
+                    园区基本信息列表
                 </span>
 
             </div>
             <!-- 搜索 -->
             <div class="form-search">
                 <el-form @submit.prevent.stop :inline="true" size="mini">
-                    <el-form-item label="美食编号">
+                    <el-form-item label="信息编号">
 
                         <el-input v-model="search.meishibianhao"></el-input>
 
                     </el-form-item>
-                    <el-form-item label="名称">
+                    <el-form-item label="标题">
 
                         <el-input v-model="search.mingcheng"></el-input>
 
                     </el-form-item>
-                    <el-form-item label="附近景点">
+                  <!--  <el-form-item label="附近景点">
 
                         <el-select v-model="search.fujinjingdian">
                             <el-option label="请选择" value=""></el-option>
@@ -30,7 +30,7 @@
                                        :label="m.jingdianmingcheng"></el-option>
                         </el-select>
 
-                    </el-form-item>
+                    </el-form-item>-->
                     <el-form-item label="分类">
 
                         <el-select v-model="search.fenlei">
@@ -52,21 +52,21 @@
 
                 <el-table-column type="index" label="#"></el-table-column> <!-- 序号 -->
 
-                <el-table-column label="美食编号" width="130">
+                <el-table-column label="信息编号" width="130">
                     <template slot-scope="{row}">
                         {{ row.meishibianhao }}
                     </template>
                 </el-table-column>
-                <el-table-column label="名称">
+                <el-table-column label="标题">
                     <template slot-scope="{row}">
                         {{ row.mingcheng }}
                     </template>
-                </el-table-column>
+                </el-table-column><!--
                 <el-table-column label="附近景点" width="80">
                     <template slot-scope="{row}">
                         {{ row.fujinjingdian }}
                     </template>
-                </el-table-column>
+                </el-table-column>-->
                 <el-table-column label="分类" width="80">
                     <template slot-scope="{row}">
                         <e-select-view module="meishifenlei" :value="row.fenlei" select="id"
@@ -77,17 +77,17 @@
                     <template slot-scope="{row}">
                         <e-img :src="row.tupian" type="list" style="max-width:120px"></e-img>
                     </template>
-                </el-table-column>
+                </el-table-column><!--
                 <el-table-column label="人均价格" width="80">
                     <template slot-scope="{row}">
                         {{ row.jiage }}
                     </template>
                 </el-table-column>
-                <el-table-column label="美食简介">
+                <el-table-column label="内容">
                     <template slot-scope="{row}">
                         {{ row.meishijianjie }}
                     </template>
-                </el-table-column>
+                </el-table-column>-->
 
 
                 <el-table-column label="操作">
@@ -101,10 +101,10 @@
                             <el-tooltip content="编辑" placement="top">
                                 <el-button icon="el-icon-edit"
                                            @click="$goto({path:'/admin/difangmeishiupdt',query:{id:row.id } })"
-                                           type="warning" size="mini"></el-button>
+                                           class="mycustom-button" size="mini"></el-button>
                             </el-tooltip>
                             <el-tooltip content="删除" placement="top">
-                                <el-button icon="el-icon-delete" type="danger" size="mini" @click="deleteItem(row)">
+                                <el-button icon="el-icon-delete" class="mycustom-button" size="mini" @click="deleteItem(row)">
 
                                 </el-button>
                             </el-tooltip>

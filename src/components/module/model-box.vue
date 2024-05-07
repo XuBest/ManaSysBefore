@@ -28,6 +28,15 @@
         .sidebar-widget-body{
             padding: 20px;
         }
+        .mycustom-button {
+            background-color:#ebd419;
+            border-color:#d4c823;
+            color: white;
+}.mycustom-button:hover {
+    background-color:#c9b40f;  /* 当鼠标悬浮时，按钮背景色变为暗黄色 */
+    border-color: #d4c823;
+}
+
     }
 
 </style>

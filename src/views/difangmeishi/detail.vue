@@ -6,47 +6,41 @@
 
                         <div class="detail detail-text">
                 <div class="detail-title">
-                    美食编号：
-                </div>
+                    信息编号：
+                </div> 
                 <div class="detail-content">
                     {{ map.meishibianhao }}
                 </div>
             </div>                        <div class="detail detail-longtext">
                 <div class="detail-title">
-                    名称：
+                    标题：
                 </div>
                 <div class="detail-content">
                     {{ map.mingcheng }}
                 </div>
-            </div>                        <div class="detail detail-select">
+            </div>                       <!-- <div class="detail detail-select">
                 <div class="detail-title">
                     附近景点：
                 </div>
                 <div class="detail-content">
                     {{  map.fujinjingdian  }}
                 </div>
-            </div><div class="detail detail-select">
+            </div>--><div class="detail detail-select">
                 <div class="detail-title">
                     分类：
                 </div>
                 <div class="detail-content">
                      <e-select-view module="meishifenlei" :value="map.fenlei" select="id" show="fenleimingcheng"></e-select-view>
                 </div>
-            </div>                                                <div class="detail detail-money">
+            </div>       <!--                                         <div class="detail detail-money">
                 <div class="detail-title">
                     人均价格：
                 </div>
                 <div class="detail-content">
                     {{ map.jiage }}
                 </div>
-            </div>                        <div class="detail detail-textarea">
-                <div class="detail-title">
-                    美食简介：
-                </div>
-                <div class="detail-content">
-                    {{ map.meishijianjie }}
-                </div>
-            </div>                        <div class="detail detail-autotime">
+            </div>          -->           
+            <div class="detail detail-autotime">
                 <div class="detail-title">
                     添加时间：
                 </div>
@@ -61,13 +55,21 @@
                 <div class="detail-content">
                     <e-images :src="map.tupian" type="detail"></e-images>
                 </div>
-            </div>                                    
+            </div> 
+            <div class="detail detail-editor">
+                <div class="detail-title">
+                    内容：
+                </div>
+                <div class="detail-content">
+                    <div v-html="map.meishijianjie"></div>
+                </div>
+            </div>                                                      
         </div>
         <div class="mt10">
-            <el-button type="default" class="hidePrint" @click="$router.go(-1)">
+            <el-button type="default"   @click="$router.go(-1)">
                 返回
             </el-button>
-            <el-button type="success" class="hidePrint" @click="$print">
+            <el-button class="mycustom-button"   @click="$print">
                 打印本页
             </el-button>
         </div>

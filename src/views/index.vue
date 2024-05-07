@@ -40,12 +40,12 @@
         <div>
             <e-container>
                 <div style="margin:10px 0 0 0">
-                    <e-module-model-box title="地方美食">
+                    <e-module-model-box title="基础信息">
                         <el-row :gutter="30">
                             <el-col v-for="r in difangmeishilist2" :md="6" :key="r.id" style="margin-bottom: 20px">
                                 <e-module-products
                                         :title="r.mingcheng"
-                                        :price="r.jiage" :description="r.meishijianjie"
+                                        :description="r.meishijianjie"
                                         :image="r.tupian"
                                         :image-height="100"
                                         :is-scale="true"

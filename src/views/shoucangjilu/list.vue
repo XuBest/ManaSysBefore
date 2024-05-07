@@ -30,7 +30,7 @@
                             </el-tooltip>
 
                             <el-tooltip content="删除" placement="top">
-                                <el-button icon="el-icon-delete" type="danger" size="mini" @click="deleteItem(row)">
+                                <el-button icon="el-icon-delete" class="mycustom-button" size="mini" @click="deleteItem(row)">
                                 </el-button>
                             </el-tooltip>
                         </el-button-group>

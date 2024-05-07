@@ -3,7 +3,7 @@
         <div>
             <e-container>
                 <div style="margin:10px 0 0 0">
-                    <e-module-model-box title="美食列表">
+                    <e-module-model-box title="园区基本信息">
 
                         <form action="javascript:;" @submit="searchSubmit" class="form-search">
                             <table class="jd-search">
@@ -19,12 +19,11 @@
                                                :class="{active:!search.fenlei}">全部</a>
 
                                             <a href="javascript:;"
-                                               v-for="r in mapmeishifenlei5"
+                                               v-for="r in mapmeishifenlei5" 
                                                @click="selectRadio('fenlei',r.id)"
-                                               :class="{active:search.fenlei == r.id}" v-text="r.typename">
+                                               :class="{active:search.fenlei == r.id}" v-text="r.fenleimingcheng">
 
                                             </a>
-
                                         </p>
                                     </td>
                                 </tr>
@@ -44,7 +43,7 @@
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <el-button type="success" @click="searchSubmit">搜索</el-button>
+                                        <el-button class="mycustom-button" @click="searchSubmit">搜索</el-button>
                                     </td>
                                 </tr>
                                 </tbody>

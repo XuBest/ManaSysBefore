@@ -75,10 +75,10 @@
 <router-link to="/events">活动信息
 </router-link>
 </li>
-<li>
+<!--<li>
 <router-link to="/lvyouxianlu">线路预定
 </router-link>
-</li>
+</li>-->
 <li>
 <router-link to="/liuyanbanadd">留言反馈
 </router-link>

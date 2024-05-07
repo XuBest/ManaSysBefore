@@ -41,7 +41,7 @@
                     <tr>
                 <td></td>
                 <td>
-                    <el-button type="success" @click="searchSubmit">搜索</el-button>
+                    <el-button class="mycustom-button" @click="searchSubmit">搜索</el-button>
                 </td>
             </tr>
         </tbody>
@@ -52,10 +52,10 @@
     <el-col v-for="r in list" :md="6" :key="r.id" style="margin-bottom: 20px">
         <e-module-xiezi
                 :title="r.jingdianmingcheng"
-                                                :image="r.tupian"
-                            :image-height="100"
+                :image="r.tupian"
+                :image-height="100"
                 :is-scale="true"
-                                            :to="'/jingdianxinxidetail?id='+r.id">
+                :to="'/jingdianxinxidetail?id='+r.id">
 
         </e-module-xiezi>
     </el-col>

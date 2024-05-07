@@ -65,29 +65,29 @@ export default [
 
                     ]
     },
-       /* {
-        label:'地方美食管理',
+        {
+        label:'园区基本信息',
         to:'',
         children:[
                         {
-                label:'美食分类添加',
+                label:'信息分类添加',
                 to:'/admin/meishifenleiadd',
             },
                         {
-                label:'美食分类查询',
+                label:'信息分类查询',
                 to:'/admin/meishifenlei',
             },
                         {
-                label:'地方美食添加',
+                label:'信息添加',
                 to:'/admin/difangmeishiadd',
             },
                         {
-                label:'地方美食查询',
+                label:'信息查询',
                 to:'/admin/difangmeishi',
             },
                     ]
     },
-        {
+      /*  {
         label:'旅游线路管理',
         to:'',
         children:[
@@ -164,7 +164,7 @@ export default [
                 to:'/admin/noticeboard',
             }, 
                     ]
-    },/**待实现 */
+    },
     {
         label:'活动管理',
         to:'',
@@ -177,7 +177,7 @@ export default [
         to:'/admin/eventsadd',
     },
                ]
-    },/**待实现 */
+    },
     {
         label:'活动报名信息',
         to:'',

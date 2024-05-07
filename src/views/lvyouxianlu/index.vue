@@ -48,7 +48,7 @@
                     <tr>
                 <td></td>
                 <td>
-                    <el-button type="success" @click="searchSubmit">搜索</el-button>
+                    <el-button class="mycustom-button" @click="searchSubmit">搜索</el-button>
                 </td>
             </tr>
         </tbody>

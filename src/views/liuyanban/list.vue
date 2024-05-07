@@ -49,7 +49,7 @@
                             <el-tooltip content="回复" placement="top">
                                 <el-button icon="el-icon-edit"
                                            @click="$goto({path:'/admin/liuyanbanupdt',query:{id:row.id } })"
-                                           type="warning" size="mini"></el-button>
+                                           class="mycustom-button" size="mini"></el-button>
                             </el-tooltip>
                             <el-tooltip content="详情" placement="top">
                                 <el-button @click="$goto({path:'/admin/liuyanbandetail',query:{id:row.id } })"
@@ -57,7 +57,7 @@
                             </el-tooltip>
 
                             <el-tooltip content="删除" placement="top">
-                                <el-button icon="el-icon-delete" type="danger" size="mini" @click="deleteItem(row)">
+                                <el-button icon="el-icon-delete" class="mycustom-button" size="mini" @click="deleteItem(row)">
 
                                 </el-button>
                             </el-tooltip>

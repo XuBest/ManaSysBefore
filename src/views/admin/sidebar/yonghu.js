@@ -4,12 +4,12 @@ export default [
         {
         label:'我的信息管理',
         to:'',
-        children:[
-            {
+        children:[ 
+           /** {
                 
                 label:'我的预定查询',
                 to:'/admin/yuding_yudingren',
-            },
+            },*/
             {
                 label:'活动报名信息',
                 to:'/admin/registrationinfo_adder',

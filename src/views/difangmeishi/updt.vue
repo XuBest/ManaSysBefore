@@ -2,23 +2,23 @@
     <div class="difangmeishi-add" v-loading="loading">
         <el-card class="box-card">
             <div slot="header" class="clearfix updt">
-                                    <el-page-header @back="$router.go(-1)" content="编辑地方美食">
+                                    <el-page-header @back="$router.go(-1)" content="编辑基本信息">
                     </el-page-header>
                             </div>
             <div class="form-database-form">
                 
 
             <el-form :model="form" ref="formModel" label-width="130px" status-icon validate-on-rule-change>
-                                <el-form-item label="美食编号" prop="meishibianhao" :rules="[{required:true, message:'请填写美食编号'}]">
-                                            <el-input placeholder="输入美食编号" style="width:250px;" v-model="form.meishibianhao" />                                    </el-form-item>
+                                <el-form-item label="信息编号" prop="meishibianhao" :rules="[{required:true, message:'请填写信息编号'}]">
+                                            <el-input placeholder="输入信息编号" style="width:250px;" v-model="form.meishibianhao" />                                    </el-form-item>
 
-                                <el-form-item label="名称" prop="mingcheng">
-                                            <el-input placeholder="输入名称" style="width:450px;" v-model="form.mingcheng" />                                    </el-form-item>
-
+                                <el-form-item label="标题" prop="mingcheng">
+                                            <el-input placeholder="输入标题" style="width:450px;" v-model="form.mingcheng" />                                    </el-form-item>
+<!--
                                 <el-form-item label="附近景点" prop="fujinjingdian">
                                             <el-select v-model="form.fujinjingdian" >
 <el-option v-for="m in jingdianxinxiList" :value="m.jingdianmingcheng" :label="m.jingdianmingcheng"></el-option>
-</el-select>                                    </el-form-item>
+</el-select>                                    </el-form-item>-->
 
                                 <el-form-item label="分类" prop="fenlei">
                                             <el-select v-model="form.fenlei" >
@@ -27,13 +27,13 @@
 
                                 <el-form-item label="图片" prop="tupian">
                                             <e-upload-images v-model="form.tupian"></e-upload-images>                                    </el-form-item>
-
+<!--
                                 <el-form-item label="价格" prop="jiage" required :rules="[{required:true, message:'请填写价格'}, {validator:rule.checkNumber, message:'输入一个有效数字'}]">
                                             <el-input placeholder="输入价格" style="width:250px;" v-model="form.jiage" />                                    </el-form-item>
-
-                                <el-form-item label="美食简介" prop="meishijianjie">
-                                            <el-input type="textarea" v-model="form.meishijianjie"></el-input>                                    </el-form-item>
-
+-->
+                                <el-form-item label="内容" prop="meishijianjie">
+                                     <e-editor v-model="form.meishijianjie"></e-editor>     </el-form-item>
+                                            
                                 <el-form-item v-if="btnText">
                     <el-button type="primary" @click="submit">{{ btnText }}</el-button>
                 </el-form-item>

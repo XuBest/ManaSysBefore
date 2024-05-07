@@ -13,13 +13,13 @@
         <div class="goods-right-content">
             <h3 class="title" v-text="map.mingcheng"></h3>
             <div class="descount">
-                                    <div>
+                            <!--        <div>
                         <span class="name">
                             附近景点：
                         </span>
                         <span class="val">
                             {{  map.fujinjingdian  }}                        </span>
-                    </div>
+                    </div>-->
                                     <div>
                         <span class="name">
                             分类：
@@ -27,24 +27,14 @@
                         <span class="val">
                              <e-select-view module="meishifenlei" :value="map.fenlei" select="id" show="fenleimingcheng"></e-select-view>                        </span>
                     </div>
-                                    <div>
+                           <!--        <div>
                         <span class="name">
                             人均价格：
                         </span>
                         <span class="val">
                             {{ map.jiage }}                        </span>
-                    </div>
-                                    <div>
-                        <span class="name">
-                            美食简介：
-                        </span>
-                        <span class="val">
-                            {{ map.meishijianjie }}                        </span>
-                    </div>
-                            </div>
-
-            
-            
+                    </div>--> 
+                </div>  
         </div>
     </div>
 
@@ -55,7 +45,23 @@
 </div>    
 
 </e-container>
-</div>    </div>
+</div>
+<div>      
+<e-container>
+    <el-tabs type="border-card">
+                <el-tab-pane label="内容">
+            <div  style="margin:15px 0 15px 0;background-color:#FFFFFF">
+
+<div style="text-indent: 2em">
+<div v-html="map.meishijianjie"></div></div>
+
+</div>        </el-tab-pane>
+            </el-tabs>
+</e-container>
+</div>           
+                
+                
+    </div>
 </template>
 <style type="text/scss" scoped lang="scss">
     </style>

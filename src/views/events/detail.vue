@@ -80,10 +80,10 @@
                 </div>
             </div>                                
         <div class="mt10">
-            <el-button type="default" class="hidePrint" @click="$router.go(-1)">
+            <el-button type="default"   @click="$router.go(-1)">
                 返回
             </el-button>
-            <el-button type="success" class="hidePrint" @click="$print">
+            <el-button class="mycustom-button"   @click="$print">
                 打印本页
             </el-button>
         </div>
